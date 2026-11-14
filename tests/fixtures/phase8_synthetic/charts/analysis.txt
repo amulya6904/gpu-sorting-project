@@ -1,0 +1,34 @@
+SYNTHETIC FIXTURE - NOT GPU MEASUREMENTS
+Performance comparisons exclude failed/skipped and unresolved event times.
+SYNTHETIC FIXTURE GPU; seed=12345; duplicate-heavy; n=1024: fastest custom=radix-8, 32768000.0 keys/s, percentage of matching CUB=50.0
+  bitonic-global: event transfer fraction=73.28%; median wall=0.609375 ms
+  bitonic-shared: event transfer fraction=76.19%; median wall=0.59375 ms
+  radix-1: event transfer fraction=79.34%; median wall=0.578125 ms
+  radix-2: event transfer fraction=82.76%; median wall=0.5625 ms
+  radix-4: event transfer fraction=86.49%; median wall=0.546875 ms
+  radix-8: event transfer fraction=90.57%; median wall=0.53125 ms
+  cub: event transfer fraction=95.05%; median wall=0.515625 ms
+SYNTHETIC FIXTURE GPU; seed=12345; duplicate-heavy; n=65536: fastest custom=radix-8, 32768000.0 keys/s, percentage of matching CUB=50.0
+  bitonic-global: event transfer fraction=4.11%; median wall=7.5 ms
+  bitonic-shared: event transfer fraction=4.76%; median wall=6.5 ms
+  radix-1: event transfer fraction=5.66%; median wall=5.5 ms
+  radix-2: event transfer fraction=6.98%; median wall=4.5 ms
+  radix-4: event transfer fraction=9.09%; median wall=3.5 ms
+  radix-8: event transfer fraction=13.04%; median wall=2.5 ms
+  cub: event transfer fraction=23.08%; median wall=1.5 ms
+SYNTHETIC FIXTURE GPU; seed=12345; random; n=1024: fastest custom=radix-8, 32768000.0 keys/s, percentage of matching CUB=50.0
+  bitonic-global: event transfer fraction=73.28%; median wall=0.609375 ms
+  bitonic-shared: event transfer fraction=76.19%; median wall=0.59375 ms
+  radix-1: event transfer fraction=79.34%; median wall=0.578125 ms
+  radix-2: event transfer fraction=82.76%; median wall=0.5625 ms
+  radix-4: event transfer fraction=86.49%; median wall=0.546875 ms
+  radix-8: event transfer fraction=90.57%; median wall=0.53125 ms
+  cub: event transfer fraction=95.05%; median wall=0.515625 ms
+SYNTHETIC FIXTURE GPU; seed=12345; random; n=65536: fastest custom=radix-8, 32768000.0 keys/s, percentage of matching CUB=50.0
+  bitonic-global: event transfer fraction=4.11%; median wall=7.5 ms
+  bitonic-shared: event transfer fraction=4.76%; median wall=6.5 ms
+  radix-1: event transfer fraction=5.66%; median wall=5.5 ms
+  radix-2: event transfer fraction=6.98%; median wall=4.5 ms
+  radix-4: event transfer fraction=9.09%; median wall=3.5 ms
+  radix-8: event transfer fraction=13.04%; median wall=2.5 ms
+  cub: event transfer fraction=23.08%; median wall=1.5 ms

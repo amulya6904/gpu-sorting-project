@@ -1,0 +1,91 @@
+{
+  "data_kind": "measured",
+  "state": "blocked_before_matrix",
+  "utc": "2026-11-06T10:28:11.590092+00:00",
+  "os": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "host_memory": "pinned",
+  "build_configuration_required": "Release",
+  "matrix": {
+    "runner": "build-phase8-cuda\\Release\\sort_benchmark.exe",
+    "output": "results\\phase8_local_blocked",
+    "sizes": [
+      1024,
+      65536,
+      262144,
+      1048576
+    ],
+    "distributions": [
+      "random",
+      "sorted",
+      "reverse-sorted",
+      "duplicate-heavy"
+    ],
+    "seeds": [
+      12345
+    ],
+    "algorithms": [
+      "bitonic-global",
+      "bitonic-shared",
+      "radix-1",
+      "radix-2",
+      "radix-4",
+      "radix-8",
+      "cub"
+    ],
+    "warmups": 3,
+    "trials": 10
+  },
+  "orchestration_command": [
+    "C:\\Users\\amuly\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "scripts\\run_benchmarks.py",
+    "--runner",
+    "build-phase8-cuda\\Release\\sort_benchmark.exe",
+    "--output",
+    "results\\phase8_local_blocked"
+  ],
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\amuly\\Desktop\\GPU sorting\\build-phase8-cuda\\Release\\sort_benchmark.exe",
+        "--algorithm",
+        "all",
+        "--size",
+        "1024",
+        "--distribution",
+        "random",
+        "--seed",
+        "12345",
+        "--warmups",
+        "1",
+        "--trials",
+        "1"
+      ],
+      "returncode": null,
+      "stdout": "",
+      "stderr": "[WinError 2] The system cannot find the file specified"
+    }
+  ],
+  "nvidia_smi": {
+    "command": [
+      "nvidia-smi",
+      "--query-gpu=name,uuid,driver_version",
+      "--format=csv,noheader"
+    ],
+    "returncode": null,
+    "stdout": "",
+    "stderr": "[WinError 2] The system cannot find the file specified"
+  },
+  "nvcc": {
+    "command": [
+      "nvcc",
+      "--version"
+    ],
+    "returncode": null,
+    "stdout": "",
+    "stderr": "[WinError 2] The system cannot find the file specified"
+  },
+  "reason": "All-seven correctness smoke did not pass; no matrix measurements attempted",
+  "measured_cases": 0,
+  "blocked_cases": 112
+}

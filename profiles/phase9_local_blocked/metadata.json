@@ -1,0 +1,161 @@
+{
+  "state": "blocked_discovery",
+  "os": "Windows-11-10.0.26200-SP0",
+  "commands": [
+    {
+      "command": [
+        "nvidia-smi",
+        "--query-gpu=name,uuid,driver_version",
+        "--format=csv,noheader"
+      ],
+      "returncode": null,
+      "stdout": "",
+      "stderr": "[WinError 2] The system cannot find the file specified"
+    },
+    {
+      "command": [
+        "nvcc",
+        "--version"
+      ],
+      "returncode": null,
+      "stdout": "",
+      "stderr": "[WinError 2] The system cannot find the file specified"
+    },
+    {
+      "command": [
+        "ncu",
+        "--version"
+      ],
+      "returncode": null,
+      "stdout": "",
+      "stderr": "[WinError 2] The system cannot find the file specified"
+    },
+    {
+      "command": [
+        "ncu",
+        "--list-sections"
+      ],
+      "returncode": null,
+      "stdout": "",
+      "stderr": "[WinError 2] The system cannot find the file specified"
+    },
+    {
+      "command": [
+        "ncu",
+        "--query-metrics",
+        "--query-metrics-mode",
+        "all",
+        "--devices",
+        "0"
+      ],
+      "returncode": null,
+      "stdout": "",
+      "stderr": "[WinError 2] The system cannot find the file specified"
+    }
+  ],
+  "plan": [
+    {
+      "algorithm": "bitonic-global",
+      "kernel": "bitonic_step",
+      "skip": 120,
+      "capture": "warmup0 stage=65536 stride=32768 cross-tile",
+      "distribution": "random"
+    },
+    {
+      "algorithm": "bitonic-global",
+      "kernel": "bitonic_step",
+      "skip": 28,
+      "capture": "warmup0 stage=256 stride=128 within-tile global-memory step",
+      "distribution": "random"
+    },
+    {
+      "algorithm": "bitonic-shared",
+      "kernel": "bitonic_step",
+      "skip": 28,
+      "capture": "warmup0 stage=65536 stride=32768 cross-tile",
+      "distribution": "random"
+    },
+    {
+      "algorithm": "bitonic-shared",
+      "kernel": "tile_steps",
+      "skip": 0,
+      "capture": "warmup0 initial=true stages=2..256; alternating initial tile runs",
+      "distribution": "random"
+    },
+    {
+      "algorithm": "bitonic-shared",
+      "kernel": "tile_steps",
+      "skip": 8,
+      "capture": "warmup0 initial=false stage=65536 strides=128..1",
+      "distribution": "random"
+    },
+    {
+      "algorithm": "radix-1",
+      "kernel": "histogram_step",
+      "skip": 0,
+      "capture": "warmup0 pass=0 shift=0 bits=1",
+      "distribution": "random"
+    },
+    {
+      "algorithm": "radix-1",
+      "kernel": "prefix_step",
+      "skip": 0,
+      "capture": "warmup0 pass=0 shift=0 bits=1",
+      "distribution": "random"
+    },
+    {
+      "algorithm": "radix-1",
+      "kernel": "scatter_step",
+      "skip": 0,
+      "capture": "warmup0 pass=0 shift=0 bits=1",
+      "distribution": "random"
+    },
+    {
+      "algorithm": "radix-8",
+      "kernel": "histogram_step",
+      "skip": 0,
+      "capture": "warmup0 pass=0 shift=0 bits=8",
+      "distribution": "random"
+    },
+    {
+      "algorithm": "radix-8",
+      "kernel": "prefix_step",
+      "skip": 0,
+      "capture": "warmup0 pass=0 shift=0 bits=8",
+      "distribution": "random"
+    },
+    {
+      "algorithm": "radix-8",
+      "kernel": "scatter_step",
+      "skip": 0,
+      "capture": "warmup0 pass=0 shift=0 bits=8",
+      "distribution": "random"
+    }
+  ],
+  "key_count": 65536,
+  "seed": 12345,
+  "profiled_times_are_not_benchmark_times": true,
+  "orchestration_command": [
+    "C:\\Users\\amuly\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "scripts\\profile_kernels.py",
+    "--runner",
+    "build-phase9\\Release\\sort_benchmark.exe",
+    "--output",
+    "profiles\\phase9_local_blocked"
+  ],
+  "radix_selection": "explicit widths; default extremes if Phase 8 measurements unavailable",
+  "selected_metrics": [],
+  "unavailable_metrics": [
+    "dram__throughput.avg.pct_of_peak_sustained_elapsed",
+    "dram__bytes_read.sum",
+    "dram__bytes_write.sum",
+    "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum",
+    "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum",
+    "l1tex__data_bank_conflicts_pipe_lsu_mem_shared_op_ld.sum",
+    "l1tex__data_bank_conflicts_pipe_lsu_mem_shared_op_st.sum",
+    "smsp__thread_inst_executed_per_inst_executed.ratio",
+    "smsp__sass_average_branch_targets_threads_uniform.pct"
+  ],
+  "blocker": "MISSING_EXECUTABLE",
+  "measured_metric_rows": 0
+}

@@ -1,0 +1,5 @@
+algorithm,key_count,distribution,seed,warmups,trials,gpu,host_memory,build_configuration,completed_trials,median_h2d_ms,median_sort_ms,median_d2h_ms,median_end_to_end_ms,keys_per_second,percentage_of_cub,status,reason
+"radix-1",1024,"random",12345,3,2,"SYNTHETIC FIXTURE GPU",pinned,Release,2,2,6,3,15,170666.666667,50,PASS,"SYNTHETIC FIXTURE"
+"cub",1024,"random",12345,3,2,"SYNTHETIC FIXTURE GPU",pinned,Release,2,2,3,3,7.5,341333.333333,100,PASS,"SYNTHETIC FIXTURE"
+"bitonic-global",1024,"random",12345,3,2,"SYNTHETIC FIXTURE GPU",pinned,Release,0,,,,,,,SKIPPED,"SYNTHETIC skipped, with quote """
+"radix-2",1024,"random",12345,3,2,"SYNTHETIC FIXTURE GPU",pinned,Release,0,,,,,,,FAIL,"SYNTHETIC failure"

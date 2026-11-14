@@ -1,0 +1,16 @@
+/build*/
+/out/
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+*.exe
+*.obj
+*.o
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.so
+*.dll
+__pycache__/
+.venv/
