@@ -53,7 +53,55 @@ The CUDA benchmark target is `sort_benchmark`. With the Visual Studio generator,
 | Check | Status |
 | --- | --- |
 | CPU Release build and tests | Passed. All five CPU checks passed on Windows. |
-| CUDA build | Pending on a CUDA-equipped machine. Local CMake configuration reported `No CUDA toolset found`. |
-| GPU correctness, benchmarks, and profiling | Pending validation on a CUDA-capable NVIDIA GPU. |
+| CUDA build | Passed. CUDA 12.9 with MSVC 19.43 (VS 2022 Build Tools), `-DCMAKE_CUDA_ARCHITECTURES=61`. |
+| GPU correctness | Passed. All 10 CTest checks passed on a GeForce GTX 1060 6GB, including the all-seven GPU smoke test and the Bitonic and Radix GPU correctness tests. |
+| GPU benchmarks | Passed. The full matrix of 112 cases passed full-output verification on every warmup and trial. Results: `results/gtx1060-full-matrix-2026-11-19/`. |
+| Profiling | Pending. Nsight Compute profiling has not been run yet. |
 
-The development laptop detects Intel Iris Xe graphics. GPU verification and performance measurements require access to a CUDA-capable lab, teammate, or remote machine.
+### Test Environment
+
+| Item | Value |
+| --- | --- |
+| GPU | NVIDIA GeForce GTX 1060 6GB (Pascal, compute capability 6.1) |
+| Driver | 582.66 (supports CUDA 13.0) |
+| CUDA Toolkit | 12.9.86. CUDA 13.x does not support Pascal GPUs, so 12.9 is required for this card. |
+| Host compiler | MSVC 19.43.34808, Visual Studio 17 2022 generator, x64 |
+| Build | Release |
+
+The CUDA build on this machine used these configure flags:
+
+```powershell
+cmake -S . -B build-cuda -G "Visual Studio 17 2022" -A x64 -T cuda="$env:CUDA_PATH" -DENABLE_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=61
+```
+
+## Results
+
+Full matrix on the GTX 1060: 4 sizes × 4 distributions × 7 configurations, seed 12345, 3 warmups and 10 measured trials per case. The tables report median sort-only time in milliseconds, measured with CUDA events. They exclude host-to-device and device-to-host transfers.
+
+### Random Keys
+
+| Keys | Bitonic global | Bitonic shared | Radix-1 | Radix-2 | Radix-4 | Radix-8 | CUB |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 1,024 | 0.349 | 0.064 | 0.626 | 0.316 | 0.165 | 0.094 | 0.037 |
+| 65,536 | 0.990 | 0.398 | 2.998 | 1.544 | 0.869 | 1.250 | 0.431 |
+| 262,144 | 1.880 | 1.265 | 11.117 | 5.507 | 3.128 | 4.713 | 0.598 |
+| 1,048,576 | 10.890 | 6.680 | 42.281 | 18.969 | 10.994 | 15.499 | 0.471 |
+
+### 1,048,576 Keys by Distribution
+
+| Distribution | Bitonic global | Bitonic shared | Radix-1 | Radix-2 | Radix-4 | Radix-8 | CUB |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Random | 10.890 | 6.680 | 42.281 | 18.969 | 10.994 | 15.499 | 0.471 |
+| Sorted | 10.089 | 5.971 | 37.710 | 18.969 | 10.954 | 15.259 | 0.450 |
+| Reverse-sorted | 10.091 | 6.212 | 37.683 | 18.952 | 10.966 | 15.347 | 0.445 |
+| Duplicate-heavy | 9.721 | 5.554 | 38.510 | 19.594 | 11.276 | 15.373 | 0.450 |
+
+### Observations
+
+- **Shared memory helps Bitonic.** Shared-memory Bitonic is 1.5–1.8× faster than global-memory Bitonic at 1,048,576 keys, and 5–8× faster at 1,024 keys.
+- **Radix digit width.** For 65,536 keys and above, Radix-4 is the fastest radix configuration. Sort time roughly halves as the digit width doubles from 1 to 2 to 4 bits. Radix-8 is slower than Radix-4 at these sizes, probably because of the larger 256-bucket histogram and scatter cost. At 1,024 keys, Radix-8 is the fastest radix configuration.
+- **CUB.** At 1,048,576 random keys, CUB sorts about 2.23 billion keys per second. Shared-memory Bitonic reaches 7.0% of CUB's throughput, Radix-4 4.3%, and Radix-1 1.1%.
+- **Transfers.** At 1,048,576 keys, each host-to-device or device-to-host copy takes about 0.4 ms with pinned memory. Measured end to end, CUB takes 1.28 ms in total, so transfers take longer than its sort.
+- **Distribution sensitivity.** Every configuration varies by about 10% or less across distributions. This is expected, because Bitonic and LSD radix sort do the same work regardless of input order.
+
+`summary.csv` holds the medians, throughput, and percentage of CUB for every case. `raw.csv` holds every trial, and `metadata.json` records the GPU, driver, toolkit, and the exact commands.

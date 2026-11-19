@@ -1,0 +1,442 @@
+{
+  "data_kind": "measured",
+  "state": "complete",
+  "utc": "2026-11-19T11:14:55.077395+00:00",
+  "os": "Windows-10-10.0.22631-SP0",
+  "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+  "host_memory": "pinned",
+  "build_configuration_required": "Release",
+  "matrix": {
+    "runner": "build-cuda\\Release\\sort_benchmark.exe",
+    "output": "results\\gtx1060-full-matrix-2026-11-19",
+    "sizes": [
+      1024,
+      65536,
+      262144,
+      1048576
+    ],
+    "distributions": [
+      "random",
+      "sorted",
+      "reverse-sorted",
+      "duplicate-heavy"
+    ],
+    "seeds": [
+      12345
+    ],
+    "algorithms": [
+      "bitonic-global",
+      "bitonic-shared",
+      "radix-1",
+      "radix-2",
+      "radix-4",
+      "radix-8",
+      "cub"
+    ],
+    "warmups": 3,
+    "trials": 10
+  },
+  "orchestration_command": [
+    "C:\\Users\\Ari\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "scripts\\run_benchmarks.py",
+    "--runner",
+    "build-cuda\\Release\\sort_benchmark.exe",
+    "--output",
+    "results\\gtx1060-full-matrix-2026-11-19"
+  ],
+  "commands": [
+    {
+      "command": [
+        "D:\\Code\\gpu-sorting-project\\build-cuda\\Release\\sort_benchmark.exe",
+        "--algorithm",
+        "all",
+        "--size",
+        "1024",
+        "--distribution",
+        "random",
+        "--seed",
+        "12345",
+        "--warmups",
+        "1",
+        "--trials",
+        "1"
+      ],
+      "returncode": 0,
+      "stdout": "Build configuration: Release\nCUDA Toolkit CUDART_VERSION: 12090\nCUDA driver API version: 13000\nCUDA runtime version: 12090\nGPU: NVIDIA GeForce GTX 1060 6GB\nCase: n=1024 distribution=random seed=12345 warmups=1 trials=1\nSort-only CUDA-event milliseconds; each warmup/trial fully verified.\nPASS: bitonic-global median_sort_ms=0.312768\nPASS: bitonic-shared median_sort_ms=0.063552\nPASS: radix-1 median_sort_ms=0.615264\nPASS: radix-2 median_sort_ms=0.328064\nPASS: radix-4 median_sort_ms=0.161248\nPASS: radix-8 median_sort_ms=0.085920\nCUB temporary storage: 1 bytes (reused)\nPASS: cub median_sort_ms=0.039168\nSummary: passed=7 unsupported=0 unavailable=0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\Code\\gpu-sorting-project\\build-cuda\\Release\\sort_benchmark.exe",
+        "--algorithm",
+        "bitonic-global,bitonic-shared,radix-1,radix-2,radix-4,radix-8,cub",
+        "--size",
+        "1024",
+        "--distribution",
+        "random",
+        "--seed",
+        "12345",
+        "--warmups",
+        "3",
+        "--trials",
+        "10",
+        "--output-prefix",
+        "results\\gtx1060-full-matrix-2026-11-19\\cases\\random_1024_12345"
+      ],
+      "returncode": 0,
+      "stdout": "Build configuration: Release\nCUDA Toolkit CUDART_VERSION: 12090\nCUDA driver API version: 13000\nCUDA runtime version: 12090\nGPU: NVIDIA GeForce GTX 1060 6GB\nCase: n=1024 distribution=random seed=12345 warmups=3 trials=10\nSort-only CUDA-event milliseconds; each warmup/trial fully verified.\nPASS: bitonic-global median_sort_ms=0.349024\nPASS: bitonic-shared median_sort_ms=0.064416\nPASS: radix-1 median_sort_ms=0.625568\nPASS: radix-2 median_sort_ms=0.315680\nPASS: radix-4 median_sort_ms=0.165232\nPASS: radix-8 median_sort_ms=0.094320\nCUB temporary storage: 1 bytes (reused)\nPASS: cub median_sort_ms=0.037232\nSummary: passed=7 unsupported=0 unavailable=0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\Code\\gpu-sorting-project\\build-cuda\\Release\\sort_benchmark.exe",
+        "--algorithm",
+        "bitonic-global,bitonic-shared,radix-1,radix-2,radix-4,radix-8,cub",
+        "--size",
+        "65536",
+        "--distribution",
+        "random",
+        "--seed",
+        "12345",
+        "--warmups",
+        "3",
+        "--trials",
+        "10",
+        "--output-prefix",
+        "results\\gtx1060-full-matrix-2026-11-19\\cases\\random_65536_12345"
+      ],
+      "returncode": 0,
+      "stdout": "Build configuration: Release\nCUDA Toolkit CUDART_VERSION: 12090\nCUDA driver API version: 13000\nCUDA runtime version: 12090\nGPU: NVIDIA GeForce GTX 1060 6GB\nCase: n=65536 distribution=random seed=12345 warmups=3 trials=10\nSort-only CUDA-event milliseconds; each warmup/trial fully verified.\nPASS: bitonic-global median_sort_ms=0.990448\nPASS: bitonic-shared median_sort_ms=0.397776\nPASS: radix-1 median_sort_ms=2.997568\nPASS: radix-2 median_sort_ms=1.543888\nPASS: radix-4 median_sort_ms=0.869440\nPASS: radix-8 median_sort_ms=1.250416\nCUB temporary storage: 275967 bytes (reused)\nPASS: cub median_sort_ms=0.431200\nSummary: passed=7 unsupported=0 unavailable=0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\Code\\gpu-sorting-project\\build-cuda\\Release\\sort_benchmark.exe",
+        "--algorithm",
+        "bitonic-global,bitonic-shared,radix-1,radix-2,radix-4,radix-8,cub",
+        "--size",
+        "262144",
+        "--distribution",
+        "random",
+        "--seed",
+        "12345",
+        "--warmups",
+        "3",
+        "--trials",
+        "10",
+        "--output-prefix",
+        "results\\gtx1060-full-matrix-2026-11-19\\cases\\random_262144_12345"
+      ],
+      "returncode": 0,
+      "stdout": "Build configuration: Release\nCUDA Toolkit CUDART_VERSION: 12090\nCUDA driver API version: 13000\nCUDA runtime version: 12090\nGPU: NVIDIA GeForce GTX 1060 6GB\nCase: n=262144 distribution=random seed=12345 warmups=3 trials=10\nSort-only CUDA-event milliseconds; each warmup/trial fully verified.\nPASS: bitonic-global median_sort_ms=1.879536\nPASS: bitonic-shared median_sort_ms=1.265088\nPASS: radix-1 median_sort_ms=11.117248\nPASS: radix-2 median_sort_ms=5.506592\nPASS: radix-4 median_sort_ms=3.128400\nPASS: radix-8 median_sort_ms=4.713008\nCUB temporary storage: 1089023 bytes (reused)\nPASS: cub median_sort_ms=0.598336\nSummary: passed=7 unsupported=0 unavailable=0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\Code\\gpu-sorting-project\\build-cuda\\Release\\sort_benchmark.exe",
+        "--algorithm",
+        "bitonic-global,bitonic-shared,radix-1,radix-2,radix-4,radix-8,cub",
+        "--size",
+        "1048576",
+        "--distribution",
+        "random",
+        "--seed",
+        "12345",
+        "--warmups",
+        "3",
+        "--trials",
+        "10",
+        "--output-prefix",
+        "results\\gtx1060-full-matrix-2026-11-19\\cases\\random_1048576_12345"
+      ],
+      "returncode": 0,
+      "stdout": "Build configuration: Release\nCUDA Toolkit CUDART_VERSION: 12090\nCUDA driver API version: 13000\nCUDA runtime version: 12090\nGPU: NVIDIA GeForce GTX 1060 6GB\nCase: n=1048576 distribution=random seed=12345 warmups=3 trials=10\nSort-only CUDA-event milliseconds; each warmup/trial fully verified.\nPASS: bitonic-global median_sort_ms=10.889584\nPASS: bitonic-shared median_sort_ms=6.679808\nPASS: radix-1 median_sort_ms=42.280769\nPASS: radix-2 median_sort_ms=18.968736\nPASS: radix-4 median_sort_ms=10.994416\nPASS: radix-8 median_sort_ms=15.499376\nCUB temporary storage: 4339199 bytes (reused)\nPASS: cub median_sort_ms=0.470832\nSummary: passed=7 unsupported=0 unavailable=0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\Code\\gpu-sorting-project\\build-cuda\\Release\\sort_benchmark.exe",
+        "--algorithm",
+        "bitonic-global,bitonic-shared,radix-1,radix-2,radix-4,radix-8,cub",
+        "--size",
+        "1024",
+        "--distribution",
+        "sorted",
+        "--seed",
+        "12345",
+        "--warmups",
+        "3",
+        "--trials",
+        "10",
+        "--output-prefix",
+        "results\\gtx1060-full-matrix-2026-11-19\\cases\\sorted_1024_12345"
+      ],
+      "returncode": 0,
+      "stdout": "Build configuration: Release\nCUDA Toolkit CUDART_VERSION: 12090\nCUDA driver API version: 13000\nCUDA runtime version: 12090\nGPU: NVIDIA GeForce GTX 1060 6GB\nCase: n=1024 distribution=sorted seed=12345 warmups=3 trials=10\nSort-only CUDA-event milliseconds; each warmup/trial fully verified.\nPASS: bitonic-global median_sort_ms=0.364784\nPASS: bitonic-shared median_sort_ms=0.048208\nPASS: radix-1 median_sort_ms=0.636976\nPASS: radix-2 median_sort_ms=0.322448\nPASS: radix-4 median_sort_ms=0.163376\nPASS: radix-8 median_sort_ms=0.089216\nCUB temporary storage: 1 bytes (reused)\nPASS: cub median_sort_ms=0.023712\nSummary: passed=7 unsupported=0 unavailable=0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\Code\\gpu-sorting-project\\build-cuda\\Release\\sort_benchmark.exe",
+        "--algorithm",
+        "bitonic-global,bitonic-shared,radix-1,radix-2,radix-4,radix-8,cub",
+        "--size",
+        "65536",
+        "--distribution",
+        "sorted",
+        "--seed",
+        "12345",
+        "--warmups",
+        "3",
+        "--trials",
+        "10",
+        "--output-prefix",
+        "results\\gtx1060-full-matrix-2026-11-19\\cases\\sorted_65536_12345"
+      ],
+      "returncode": 0,
+      "stdout": "Build configuration: Release\nCUDA Toolkit CUDART_VERSION: 12090\nCUDA driver API version: 13000\nCUDA runtime version: 12090\nGPU: NVIDIA GeForce GTX 1060 6GB\nCase: n=65536 distribution=sorted seed=12345 warmups=3 trials=10\nSort-only CUDA-event milliseconds; each warmup/trial fully verified.\nPASS: bitonic-global median_sort_ms=0.887904\nPASS: bitonic-shared median_sort_ms=0.342432\nPASS: radix-1 median_sort_ms=2.426512\nPASS: radix-2 median_sort_ms=1.243888\nPASS: radix-4 median_sort_ms=0.705280\nPASS: radix-8 median_sort_ms=1.000544\nCUB temporary storage: 275967 bytes (reused)\nPASS: cub median_sort_ms=0.239600\nSummary: passed=7 unsupported=0 unavailable=0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\Code\\gpu-sorting-project\\build-cuda\\Release\\sort_benchmark.exe",
+        "--algorithm",
+        "bitonic-global,bitonic-shared,radix-1,radix-2,radix-4,radix-8,cub",
+        "--size",
+        "262144",
+        "--distribution",
+        "sorted",
+        "--seed",
+        "12345",
+        "--warmups",
+        "3",
+        "--trials",
+        "10",
+        "--output-prefix",
+        "results\\gtx1060-full-matrix-2026-11-19\\cases\\sorted_262144_12345"
+      ],
+      "returncode": 0,
+      "stdout": "Build configuration: Release\nCUDA Toolkit CUDART_VERSION: 12090\nCUDA driver API version: 13000\nCUDA runtime version: 12090\nGPU: NVIDIA GeForce GTX 1060 6GB\nCase: n=262144 distribution=sorted seed=12345 warmups=3 trials=10\nSort-only CUDA-event milliseconds; each warmup/trial fully verified.\nPASS: bitonic-global median_sort_ms=1.571952\nPASS: bitonic-shared median_sort_ms=1.033792\nPASS: radix-1 median_sort_ms=8.983664\nPASS: radix-2 median_sort_ms=4.577680\nPASS: radix-4 median_sort_ms=2.574608\nPASS: radix-8 median_sort_ms=3.883728\nCUB temporary storage: 1089023 bytes (reused)\nPASS: cub median_sort_ms=0.535024\nSummary: passed=7 unsupported=0 unavailable=0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\Code\\gpu-sorting-project\\build-cuda\\Release\\sort_benchmark.exe",
+        "--algorithm",
+        "bitonic-global,bitonic-shared,radix-1,radix-2,radix-4,radix-8,cub",
+        "--size",
+        "1048576",
+        "--distribution",
+        "sorted",
+        "--seed",
+        "12345",
+        "--warmups",
+        "3",
+        "--trials",
+        "10",
+        "--output-prefix",
+        "results\\gtx1060-full-matrix-2026-11-19\\cases\\sorted_1048576_12345"
+      ],
+      "returncode": 0,
+      "stdout": "Build configuration: Release\nCUDA Toolkit CUDART_VERSION: 12090\nCUDA driver API version: 13000\nCUDA runtime version: 12090\nGPU: NVIDIA GeForce GTX 1060 6GB\nCase: n=1048576 distribution=sorted seed=12345 warmups=3 trials=10\nSort-only CUDA-event milliseconds; each warmup/trial fully verified.\nPASS: bitonic-global median_sort_ms=10.088976\nPASS: bitonic-shared median_sort_ms=5.971248\nPASS: radix-1 median_sort_ms=37.709921\nPASS: radix-2 median_sort_ms=18.968863\nPASS: radix-4 median_sort_ms=10.953824\nPASS: radix-8 median_sort_ms=15.259264\nCUB temporary storage: 4339199 bytes (reused)\nPASS: cub median_sort_ms=0.450032\nSummary: passed=7 unsupported=0 unavailable=0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\Code\\gpu-sorting-project\\build-cuda\\Release\\sort_benchmark.exe",
+        "--algorithm",
+        "bitonic-global,bitonic-shared,radix-1,radix-2,radix-4,radix-8,cub",
+        "--size",
+        "1024",
+        "--distribution",
+        "reverse-sorted",
+        "--seed",
+        "12345",
+        "--warmups",
+        "3",
+        "--trials",
+        "10",
+        "--output-prefix",
+        "results\\gtx1060-full-matrix-2026-11-19\\cases\\reverse-sorted_1024_12345"
+      ],
+      "returncode": 0,
+      "stdout": "Build configuration: Release\nCUDA Toolkit CUDART_VERSION: 12090\nCUDA driver API version: 13000\nCUDA runtime version: 12090\nGPU: NVIDIA GeForce GTX 1060 6GB\nCase: n=1024 distribution=reverse-sorted seed=12345 warmups=3 trials=10\nSort-only CUDA-event milliseconds; each warmup/trial fully verified.\nPASS: bitonic-global median_sort_ms=0.367168\nPASS: bitonic-shared median_sort_ms=0.042928\nPASS: radix-1 median_sort_ms=0.619504\nPASS: radix-2 median_sort_ms=0.318096\nPASS: radix-4 median_sort_ms=0.159184\nPASS: radix-8 median_sort_ms=0.083312\nCUB temporary storage: 1 bytes (reused)\nPASS: cub median_sort_ms=0.024128\nSummary: passed=7 unsupported=0 unavailable=0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\Code\\gpu-sorting-project\\build-cuda\\Release\\sort_benchmark.exe",
+        "--algorithm",
+        "bitonic-global,bitonic-shared,radix-1,radix-2,radix-4,radix-8,cub",
+        "--size",
+        "65536",
+        "--distribution",
+        "reverse-sorted",
+        "--seed",
+        "12345",
+        "--warmups",
+        "3",
+        "--trials",
+        "10",
+        "--output-prefix",
+        "results\\gtx1060-full-matrix-2026-11-19\\cases\\reverse-sorted_65536_12345"
+      ],
+      "returncode": 0,
+      "stdout": "Build configuration: Release\nCUDA Toolkit CUDART_VERSION: 12090\nCUDA driver API version: 13000\nCUDA runtime version: 12090\nGPU: NVIDIA GeForce GTX 1060 6GB\nCase: n=65536 distribution=reverse-sorted seed=12345 warmups=3 trials=10\nSort-only CUDA-event milliseconds; each warmup/trial fully verified.\nPASS: bitonic-global median_sort_ms=0.897072\nPASS: bitonic-shared median_sort_ms=0.374064\nPASS: radix-1 median_sort_ms=2.429120\nPASS: radix-2 median_sort_ms=1.249840\nPASS: radix-4 median_sort_ms=0.710032\nPASS: radix-8 median_sort_ms=1.003168\nCUB temporary storage: 275967 bytes (reused)\nPASS: cub median_sort_ms=0.274192\nSummary: passed=7 unsupported=0 unavailable=0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\Code\\gpu-sorting-project\\build-cuda\\Release\\sort_benchmark.exe",
+        "--algorithm",
+        "bitonic-global,bitonic-shared,radix-1,radix-2,radix-4,radix-8,cub",
+        "--size",
+        "262144",
+        "--distribution",
+        "reverse-sorted",
+        "--seed",
+        "12345",
+        "--warmups",
+        "3",
+        "--trials",
+        "10",
+        "--output-prefix",
+        "results\\gtx1060-full-matrix-2026-11-19\\cases\\reverse-sorted_262144_12345"
+      ],
+      "returncode": 0,
+      "stdout": "Build configuration: Release\nCUDA Toolkit CUDART_VERSION: 12090\nCUDA driver API version: 13000\nCUDA runtime version: 12090\nGPU: NVIDIA GeForce GTX 1060 6GB\nCase: n=262144 distribution=reverse-sorted seed=12345 warmups=3 trials=10\nSort-only CUDA-event milliseconds; each warmup/trial fully verified.\nPASS: bitonic-global median_sort_ms=1.566912\nPASS: bitonic-shared median_sort_ms=1.039024\nPASS: radix-1 median_sort_ms=8.966176\nPASS: radix-2 median_sort_ms=4.577088\nPASS: radix-4 median_sort_ms=2.580080\nPASS: radix-8 median_sort_ms=3.887536\nCUB temporary storage: 1089023 bytes (reused)\nPASS: cub median_sort_ms=0.510896\nSummary: passed=7 unsupported=0 unavailable=0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\Code\\gpu-sorting-project\\build-cuda\\Release\\sort_benchmark.exe",
+        "--algorithm",
+        "bitonic-global,bitonic-shared,radix-1,radix-2,radix-4,radix-8,cub",
+        "--size",
+        "1048576",
+        "--distribution",
+        "reverse-sorted",
+        "--seed",
+        "12345",
+        "--warmups",
+        "3",
+        "--trials",
+        "10",
+        "--output-prefix",
+        "results\\gtx1060-full-matrix-2026-11-19\\cases\\reverse-sorted_1048576_12345"
+      ],
+      "returncode": 0,
+      "stdout": "Build configuration: Release\nCUDA Toolkit CUDART_VERSION: 12090\nCUDA driver API version: 13000\nCUDA runtime version: 12090\nGPU: NVIDIA GeForce GTX 1060 6GB\nCase: n=1048576 distribution=reverse-sorted seed=12345 warmups=3 trials=10\nSort-only CUDA-event milliseconds; each warmup/trial fully verified.\nPASS: bitonic-global median_sort_ms=10.091168\nPASS: bitonic-shared median_sort_ms=6.212096\nPASS: radix-1 median_sort_ms=37.682737\nPASS: radix-2 median_sort_ms=18.951600\nPASS: radix-4 median_sort_ms=10.966480\nPASS: radix-8 median_sort_ms=15.346656\nCUB temporary storage: 4339199 bytes (reused)\nPASS: cub median_sort_ms=0.444736\nSummary: passed=7 unsupported=0 unavailable=0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\Code\\gpu-sorting-project\\build-cuda\\Release\\sort_benchmark.exe",
+        "--algorithm",
+        "bitonic-global,bitonic-shared,radix-1,radix-2,radix-4,radix-8,cub",
+        "--size",
+        "1024",
+        "--distribution",
+        "duplicate-heavy",
+        "--seed",
+        "12345",
+        "--warmups",
+        "3",
+        "--trials",
+        "10",
+        "--output-prefix",
+        "results\\gtx1060-full-matrix-2026-11-19\\cases\\duplicate-heavy_1024_12345"
+      ],
+      "returncode": 0,
+      "stdout": "Build configuration: Release\nCUDA Toolkit CUDART_VERSION: 12090\nCUDA driver API version: 13000\nCUDA runtime version: 12090\nGPU: NVIDIA GeForce GTX 1060 6GB\nCase: n=1024 distribution=duplicate-heavy seed=12345 warmups=3 trials=10\nSort-only CUDA-event milliseconds; each warmup/trial fully verified.\nPASS: bitonic-global median_sort_ms=0.352976\nPASS: bitonic-shared median_sort_ms=0.045184\nPASS: radix-1 median_sort_ms=0.606672\nPASS: radix-2 median_sort_ms=0.308448\nPASS: radix-4 median_sort_ms=0.161632\nPASS: radix-8 median_sort_ms=0.081632\nCUB temporary storage: 1 bytes (reused)\nPASS: cub median_sort_ms=0.022832\nSummary: passed=7 unsupported=0 unavailable=0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\Code\\gpu-sorting-project\\build-cuda\\Release\\sort_benchmark.exe",
+        "--algorithm",
+        "bitonic-global,bitonic-shared,radix-1,radix-2,radix-4,radix-8,cub",
+        "--size",
+        "65536",
+        "--distribution",
+        "duplicate-heavy",
+        "--seed",
+        "12345",
+        "--warmups",
+        "3",
+        "--trials",
+        "10",
+        "--output-prefix",
+        "results\\gtx1060-full-matrix-2026-11-19\\cases\\duplicate-heavy_65536_12345"
+      ],
+      "returncode": 0,
+      "stdout": "Build configuration: Release\nCUDA Toolkit CUDART_VERSION: 12090\nCUDA driver API version: 13000\nCUDA runtime version: 12090\nGPU: NVIDIA GeForce GTX 1060 6GB\nCase: n=65536 distribution=duplicate-heavy seed=12345 warmups=3 trials=10\nSort-only CUDA-event milliseconds; each warmup/trial fully verified.\nPASS: bitonic-global median_sort_ms=0.909648\nPASS: bitonic-shared median_sort_ms=0.373920\nPASS: radix-1 median_sort_ms=2.478000\nPASS: radix-2 median_sort_ms=1.279088\nPASS: radix-4 median_sort_ms=0.725152\nPASS: radix-8 median_sort_ms=1.007328\nCUB temporary storage: 275967 bytes (reused)\nPASS: cub median_sort_ms=0.237584\nSummary: passed=7 unsupported=0 unavailable=0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\Code\\gpu-sorting-project\\build-cuda\\Release\\sort_benchmark.exe",
+        "--algorithm",
+        "bitonic-global,bitonic-shared,radix-1,radix-2,radix-4,radix-8,cub",
+        "--size",
+        "262144",
+        "--distribution",
+        "duplicate-heavy",
+        "--seed",
+        "12345",
+        "--warmups",
+        "3",
+        "--trials",
+        "10",
+        "--output-prefix",
+        "results\\gtx1060-full-matrix-2026-11-19\\cases\\duplicate-heavy_262144_12345"
+      ],
+      "returncode": 0,
+      "stdout": "Build configuration: Release\nCUDA Toolkit CUDART_VERSION: 12090\nCUDA driver API version: 13000\nCUDA runtime version: 12090\nGPU: NVIDIA GeForce GTX 1060 6GB\nCase: n=262144 distribution=duplicate-heavy seed=12345 warmups=3 trials=10\nSort-only CUDA-event milliseconds; each warmup/trial fully verified.\nPASS: bitonic-global median_sort_ms=1.568096\nPASS: bitonic-shared median_sort_ms=1.037696\nPASS: radix-1 median_sort_ms=9.160368\nPASS: radix-2 median_sort_ms=4.667968\nPASS: radix-4 median_sort_ms=2.663184\nPASS: radix-8 median_sort_ms=3.908608\nCUB temporary storage: 1089023 bytes (reused)\nPASS: cub median_sort_ms=0.289792\nSummary: passed=7 unsupported=0 unavailable=0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\Code\\gpu-sorting-project\\build-cuda\\Release\\sort_benchmark.exe",
+        "--algorithm",
+        "bitonic-global,bitonic-shared,radix-1,radix-2,radix-4,radix-8,cub",
+        "--size",
+        "1048576",
+        "--distribution",
+        "duplicate-heavy",
+        "--seed",
+        "12345",
+        "--warmups",
+        "3",
+        "--trials",
+        "10",
+        "--output-prefix",
+        "results\\gtx1060-full-matrix-2026-11-19\\cases\\duplicate-heavy_1048576_12345"
+      ],
+      "returncode": 0,
+      "stdout": "Build configuration: Release\nCUDA Toolkit CUDART_VERSION: 12090\nCUDA driver API version: 13000\nCUDA runtime version: 12090\nGPU: NVIDIA GeForce GTX 1060 6GB\nCase: n=1048576 distribution=duplicate-heavy seed=12345 warmups=3 trials=10\nSort-only CUDA-event milliseconds; each warmup/trial fully verified.\nPASS: bitonic-global median_sort_ms=9.720608\nPASS: bitonic-shared median_sort_ms=5.553616\nPASS: radix-1 median_sort_ms=38.510321\nPASS: radix-2 median_sort_ms=19.593616\nPASS: radix-4 median_sort_ms=11.275600\nPASS: radix-8 median_sort_ms=15.372576\nCUB temporary storage: 4339199 bytes (reused)\nPASS: cub median_sort_ms=0.449616\nSummary: passed=7 unsupported=0 unavailable=0\n",
+      "stderr": ""
+    }
+  ],
+  "nvidia_smi": {
+    "command": [
+      "C:\\WINDOWS\\system32\\nvidia-smi.EXE",
+      "--query-gpu=name,uuid,driver_version",
+      "--format=csv,noheader"
+    ],
+    "returncode": 0,
+    "stdout": "NVIDIA GeForce GTX 1060 6GB, GPU-c32609f7-4fd3-1118-b7b9-7674b4427ee1, 582.66\n",
+    "stderr": ""
+  },
+  "nvcc": {
+    "command": [
+      "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.9\\bin\\nvcc.EXE",
+      "--version"
+    ],
+    "returncode": 0,
+    "stdout": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Tue_May_27_02:24:01_Pacific_Daylight_Time_2025\nCuda compilation tools, release 12.9, V12.9.86\nBuild cuda_12.9.r12.9/compiler.36037853_0\n",
+    "stderr": ""
+  },
+  "passed_cases": 112,
+  "failed_or_skipped_cases": 0
+}
