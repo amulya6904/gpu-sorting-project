@@ -1,0 +1,17 @@
+Build configuration: Release
+CUDA Toolkit CUDART_VERSION: 12090
+CUDA driver API version: 13000
+CUDA runtime version: 12090
+GPU: NVIDIA GeForce GTX 1060 6GB
+Case: n=1024 distribution=random seed=12345 warmups=1 trials=1
+Sort-only CUDA-event milliseconds; each warmup/trial fully verified.
+PASS: bitonic-global median_sort_ms=0.312768
+PASS: bitonic-shared median_sort_ms=0.063552
+PASS: radix-1 median_sort_ms=0.615264
+PASS: radix-2 median_sort_ms=0.328064
+PASS: radix-4 median_sort_ms=0.161248
+PASS: radix-8 median_sort_ms=0.085920
+CUB temporary storage: 1 bytes (reused)
+PASS: cub median_sort_ms=0.039168
+Summary: passed=7 unsupported=0 unavailable=0
+

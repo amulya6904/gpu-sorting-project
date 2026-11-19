@@ -1,0 +1,8 @@
+algorithm,key_count,distribution,seed,warmups,trials,gpu,host_memory,build_configuration,completed_trials,median_h2d_ms,median_sort_ms,median_d2h_ms,median_end_to_end_ms,keys_per_second,percentage_of_cub,status,reason
+"bitonic-global",262144,"duplicate-heavy",12345,3,10,"NVIDIA GeForce GTX 1060 6GB",pinned,Release,10,0.0956799983978,1.56809598207,0.107664000243,1.79255,167173440.272,18.4805014846,PASS,""
+"bitonic-shared",262144,"duplicate-heavy",12345,3,10,"NVIDIA GeForce GTX 1060 6GB",pinned,Release,10,0.0953759998083,1.03769600391,0.163744002581,1.2985,252621190.61,27.9264833009,PASS,""
+"radix-1",262144,"duplicate-heavy",12345,3,10,"NVIDIA GeForce GTX 1060 6GB",pinned,Release,10,0.120560001582,9.1603679657,0.12910400331,9.4147,28617191.0322,3.16354105351,PASS,""
+"radix-2",262144,"duplicate-heavy",12345,3,10,"NVIDIA GeForce GTX 1060 6GB",pinned,Release,10,0.0978239998221,4.66796803474,0.112208001316,4.88945,56158053.7932,6.20809737964,PASS,""
+"radix-4",262144,"duplicate-heavy",12345,3,10,"NVIDIA GeForce GTX 1060 6GB",pinned,Release,10,0.0959840007126,2.66318404675,0.147568002343,2.9198,98432551.1864,10.8814109788,PASS,""
+"radix-8",262144,"duplicate-heavy",12345,3,10,"NVIDIA GeForce GTX 1060 6GB",pinned,Release,10,0.10707199946,3.90860795975,0.150944001973,4.15305,67068378.9983,7.41419974149,PASS,""
+"cub",262144,"duplicate-heavy",12345,3,10,"NVIDIA GeForce GTX 1060 6GB",pinned,Release,10,0.118416000158,0.289792001247,0.109423998743,0.529,904593635.682,100,PASS,""
